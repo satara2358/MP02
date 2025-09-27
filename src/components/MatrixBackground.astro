@@ -1,0 +1,91 @@
+---
+// src/components/MatrixBackground.astro
+---
+
+<div class="matrix-background">
+  <!-- Este componente crea el efecto de lluvia de código Matrix -->
+</div>
+
+<style>
+  .matrix-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  
+  .matrix-background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(transparent 95%, rgba(0, 255, 65, 0.1) 100%);
+    animation: matrixRain 20s linear infinite;
+  }
+  
+  @keyframes matrixRain {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 0 100%;
+    }
+  }
+</style>
+
+<script is:inline>
+  // Script para generar caracteres Matrix aleatorios
+  document.addEventListener('DOMContentLoaded', function() {
+    const container = document.querySelector('.matrix-background');
+    const characters = '0101010101111000011110000111100001111000011110000111100001111000011110000';
+    
+    function createMatrixRain() {
+      const span = document.createElement('span');
+      span.textContent = characters.charAt(Math.floor(Math.random() * characters.length));
+      span.style.position = 'absolute';
+      span.style.left = Math.random() * 100 + 'vw';
+      span.style.animation = `fall ${(Math.random() * 5 + 5)}s linear`;
+      span.style.color = '#00ff41';
+      span.style.opacity = Math.random() * 0.5 + 0.5;
+      span.style.fontSize = Math.random() * 10 + 10 + 'px';
+      span.style.fontFamily = 'monospace';
+      
+      // Crear keyframes para la animación de caída
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes fall {
+          0% {
+            transform: translateY(-100%);
+            opacity: 1;
+          }
+          100% {
+            transform: translateY(100vh);
+            opacity: 0;
+          }
+        }
+      `;
+      document.head.appendChild(style);
+      
+      container.appendChild(span);
+      
+      // Eliminar el elemento después de que termine la animación
+      setTimeout(() => {
+        span.remove();
+      }, (Math.random() * 5000 + 5000));
+    }
+    
+    // Crear múltiples caracteres cayendo
+    for (let i = 0; i < 50; i++) {
+      setTimeout(() => {
+        createMatrixRain();
+        setInterval(createMatrixRain, 100);
+      }, i * 100);
+    }
+  });
+</script>

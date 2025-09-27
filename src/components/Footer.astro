@@ -1,0 +1,41 @@
+---
+import astroLogo from '../assets/astro.svg';
+import background from '../assets/background.svg';
+import LogoSvg from '../icons/Craneo.svg';
+---
+
+<footer class="fixed bottom-0 left-0 w-full bg-black mx-auto max-w-[1800px] px-4 py-3 shadow-lg mt-60">
+  <div class="flex flex-col md:flex-row justify-between items-center gap-y-3 md:gap-y-0">
+    
+    <!-- Logo + Año + Autor -->
+    <div class="flex flex-col sm:flex-row gap-y-2 sm:gap-y-0 sm:gap-x-3 items-center text-center sm:text-left">
+      <LogoSvg class="w-12 h-12" />
+      <div>
+        <p class="font-semibold text-2xl flex justify-center sm:justify-start text-white">
+          <span class="rounded bg-red-600 text-2xl px-2">
+            <span class="rounded-lg bg-gradient-to-r from-red-600 via-pink-500 to-yellow-500 text-white text-2xl px-3 py-1 shadow-md border border-white/10">
+              {new Date().getFullYear()}
+            </span>
+          </span>
+        </p>
+        <span class="uppercase font-light text-gray-300 block">
+          <a
+            href="https://github.com/withastro/astro"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Julian
+          </a>
+        </span>
+      </div>
+    </div>
+    
+    <!-- Texto a la derecha -->
+    <div class="text-center md:text-right">
+      <h5 class="text-white text-xl font-bold uppercase">
+        ING_SOFTWARE
+      </h5>
+    </div>
+    
+  </div>
+</footer>

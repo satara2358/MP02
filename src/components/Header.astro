@@ -1,0 +1,41 @@
+---
+import astroLogo from '../assets/astro.svg';
+import background from '../assets/background.svg';
+import LogoSvg from '../icons/Craneo.svg';
+---
+
+<header class="mx-auto w-full max-w-[1800px] px-4 py-4 bg-transparent shadow-lg mb-60" >
+  <div class="flex flex-col md:flex-row justify-between items-center gap-y-4 md:gap-y-0">
+    
+    <!-- Logo + Nombre -->
+    <div class="flex flex-col sm:flex-row gap-y-2 sm:gap-y-0 sm:gap-x-3 items-center text-center sm:text-left">
+      <LogoSvg class="w-12 h-12" />
+      <div>
+        <p class="font-semibold text-2xl flex justify-center sm:justify-start gap-x-2 text-white">
+          JULIAN
+          <span class="rounded bg-red-600 text-2xl px-2">2025</span>
+        </p>
+        <span class="uppercase font-light text-gray-200 block">
+          <a
+            href="https://github.com/withastro/astro"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Proyecto Personal
+          </a>
+        </span>
+      </div>
+    </div>
+
+    <!-- Navegación -->
+    <nav>
+      <ul class="flex flex-col md:flex-row gap-y-3 md:gap-y-0 md:gap-x-6 text-white text-lg font-medium uppercase text-center md:text-left">
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Sobre mí</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
